@@ -187,6 +187,7 @@ describe("Testing hiscores", function () {
     // start the server
     server.start();
 
+
     // sign in a user
     await chai
       .request(apiAddress)
@@ -353,6 +354,7 @@ describe("Testing hiscores", function () {
       .get("/high-scores")
       .query({ level: "A1" })
       .then((response) => {
+      
         expect(response.status).to.equal(200);
         expect(response.body).to.be.an("array");
         expect(response.body.length).to.be.greaterThan(0);

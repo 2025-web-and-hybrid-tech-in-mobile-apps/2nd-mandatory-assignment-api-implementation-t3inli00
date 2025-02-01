@@ -198,14 +198,18 @@ describe("Testing login", function () {
     // close the server
     server.close();
   });
-
-  it("Login with correct username and password", function (done) {
+ 
+  
+  it("Login with correct username and password", function (done) {   
     chai
       .request(apiAddress)
       .post("/login")
-      .send({ userHandle: "DukeNukem", password: "123456" })
-      .end((err, res) => {
-        expect(res).to.have.status(200);
+      .send({
+        userHandle: "DukeNukem",
+        password: "123456",
+      })      
+      .end((err, res) => {    
+       expect(res).to.have.status(200);
         expect(res.body).to.be.jsonSchema(loginSuccessfulSchema);
         done();
       });
